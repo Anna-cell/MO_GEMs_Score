@@ -6,7 +6,6 @@ Created on Thu Jul  7 11:03:26 2022
 @author: e158401a
 """
 
-import re
 import pandas as pd
 import pickle
 

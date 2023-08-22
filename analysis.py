@@ -15,7 +15,6 @@ from sklearn import metrics
 import matplotlib.pyplot as plt
 import math
 from cobra.flux_analysis import flux_variability_analysis
-import seaborn as sns
 
 diet_param = "Western_diet" # Western_diet, Protein_diet or open
 host_choice = "sIEC"
