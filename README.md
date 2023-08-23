@@ -16,6 +16,3 @@ Assembling the individuals models into an ecosystem model is made using mocbapy.
  - sklearn
  - pickle
  - numpy
- - concurrent
- - os
- - math
