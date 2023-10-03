@@ -6,9 +6,9 @@ This is an analysis of the metabolic interaction between gut microbiota bacteria
 ## Requirements
 
 ### CPLEX
-To reproduce the results depicted in the publication, this code must be run with the solver CPLEX.
+To reproduce the results depicted in the publication, this code must be run with the solver CPLEX, from IBM
 ### mocbapy
-Assembling the individuals models into an ecosystem model is made using mocbapy. The branch "constrain_diet" must be selected.
+Assembling the individuals models into an ecosystem model is made using [mocbapy](https://gitlab.univ-nantes.fr/mbudinich/mocbapy)
 ### Python packages
  - pandas
  - cobrapy
