@@ -121,6 +121,15 @@ def pareto(b, diet_param, host, bacteria_id):
         plt.show()
     return AUC, nb_points, added_growth_host, added_growth_b, growth_b, category, len(b.exchanges)
 
+def apply_pareto_carveinVMH(i):
+    model = np.int64(carve_in_vmh[i]) # If i'm iterating
+    #model = np.int64(i) # If I have ncbi id
+    path = carve_models.loc[model, "file_path"][0:-3]
+    b = cobra.io.read_sbml_model(emblpath+path)
+    bacteria_id = carve_models.loc[model, "organism_name"]
+    AUC, nb_point, added_growth_host, added_growth_b, growth_b, category, nb_b_exchanges = pareto(b= b, diet_param = diet_param, host = host, bacteria_id = bacteria_id)
+    return bacteria_id, AUC, nb_point, added_growth_host, added_growth_b, i, growth_b, category, nb_b_exchanges
+
 diet_param = "Western_diet"
 semiconstrained = False
 host_choice = "sIEC"
@@ -141,15 +150,6 @@ for met in host.metabolites:
 carve_models = pd.read_csv(emblpath+"/model_list.tsv", sep = "\t", header = 0, index_col=1)
 with open("resources/carve_in_vmh.pickle", "rb") as fp:   # Unpickling
     carve_in_vmh = pickle.load(fp)
-
-def apply_pareto_carveinVMH(i):
-    model = np.int64(carve_in_vmh[i]) # If i'm iterating
-    #model = np.int64(i) # If I have ncbi id
-    path = carve_models.loc[model, "file_path"][0:-3]
-    b = cobra.io.read_sbml_model(emblpath+path)
-    bacteria_id = carve_models.loc[model, "organism_name"]
-    AUC, nb_point, added_growth_host, added_growth_b, growth_b, category, nb_b_exchanges = pareto(b= b, diet_param = diet_param, host = host, bacteria_id = bacteria_id)
-    return bacteria_id, AUC, nb_point, added_growth_host, added_growth_b, i, growth_b, category, nb_b_exchanges
 
 pool_bacteria = carve_in_vmh #Must be a list of model accession in this case. But the pareto can be called with another code the apply_pareto and from the model + bacteria_id. 
 

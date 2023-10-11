@@ -37,9 +37,8 @@ growth_host = host_int.optimize().objective_value
 host, diet_dict = diet.medium_2(model = host, medium_lumen = diet_param, host_choice = host_choice, 
                                   block = block, mocba=True, semiconstrained = semiconstrained)
 
-#bact_selection = [0, 1, 3, 4, 5, 6, 8, 12, 13, 15]#selection of ten bacteria with less niche overlap (see Figure S5)
+#bact_selection = [0, 1, 3, 4, 5, 6, 8, 12, 13, 15] #selection of ten bacteria with less niche overlap (see Supplementary materials)
 bact_selection = [0, 2, 9, 11] #In order : A. muciniphila, B. xylanislvens, F. prausnitzii, R. bromii
-
 
 #Normal ecosystem pareto
 bacteria_models = []
